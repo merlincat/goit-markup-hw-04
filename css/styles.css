@@ -76,6 +76,8 @@ img {
 .header {
   width: 100%;
   border-bottom: 1px solid #e7e9fc;
+  box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 .header .container {
   display: flex;
@@ -125,19 +127,21 @@ img {
   letter-spacing: 0.02em;
   padding: 24px 0;
   display: inline-block;
-  transition: color 250ms ease-out;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .list-item-link::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   height: 4px;
   background-color: transparent;
+  border-radius: 2px;
   width: 100%;
   transition: background-color 500ms ease-out;
 }
 .list-item-link--active::after {
+  color: #404bbf;
   background-color: #404bbf;
 }
 .list-item-link:hover,
@@ -164,7 +168,7 @@ img {
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0.02em;
-  transition: color 250ms ease-out;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contacts-item-link:hover,
 .contacts-item-link:focus {
@@ -174,9 +178,10 @@ img {
 /* Hero-секція */
 
 .hero {
+  max-width: 1440px;
+  margin: 0 auto;
   background-color: #2e2f42;
   background-image: linear-gradient(
-      to top,
       rgba(46, 47, 66, 0.7),
       rgba(46, 47, 66, 0.7)
     ),
@@ -184,6 +189,7 @@ img {
   background-repeat: no-repeat;
   /* background-position: left; */
   background-size: cover;
+  background-position: center;
   padding-top: 188px;
   padding-bottom: 188px;
 }
@@ -216,7 +222,7 @@ img {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   min-width: 169px;
-  transition: background-color 250ms ease-out;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .hero-btn:hover,
 .hero-btn:focus {
@@ -250,6 +256,10 @@ img {
 }
 
 .list-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 112px;
   width: 100%;
   margin-bottom: 8px;
   padding: 24px 100px;
@@ -270,16 +280,18 @@ img {
   margin-bottom: 72px;
 }
 .list-item-wrap {
-  padding: 32px 16px;
+  padding: 32px 0;
 }
 .team-list-item {
   background: #fff;
   text-align: center;
   border-radius: 0px 0px 4px 4px;
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 .card-social {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 24px;
 }
 .social-link {
@@ -289,7 +301,10 @@ img {
   padding: 12px;
   background-color: #4d5ae5;
   border-radius: 50%;
-  transition: background-color 250ms ease-out;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.social-icon {
+  fill: #f4f4fd;
 }
 .social-link:hover,
 .social-link:focus {
@@ -313,6 +328,11 @@ img {
 .portfolio-list-item {
   background: #fff;
   flex-basis: calc((100% - 48px) / 3);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.portfolio-list-item:hover {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 .portfolio-img-wrapper {
   position: relative;
@@ -325,7 +345,7 @@ img {
   width: 100%;
   height: 100%;
   padding: 40px 32px;
-  transform: translateX(100%);
+  transform: translateY(100%);
   background-color: #4d5ae5;
   color: #f4f4fd;
   font-size: 16px;
@@ -333,11 +353,11 @@ img {
   line-height: 1.5; /* 150% */
   letter-spacing: 0.02em;
   overflow: auto;
-  transition: transform 500ms ease-out;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .portfolio-item-link:hover .portfolio-overlay,
 .portfolio-item-link:focus .portfolio-overlay {
-  transform: translateX(0);
+  transform: translateY(0%);
 }
 .portfolio-text-wrap {
   padding: 32px 16px;
@@ -353,7 +373,10 @@ img {
 .footer-wrapper {
   display: flex;
   justify-content: flex-start;
-  gap: 120px;
+  align-items: baseline;
+}
+.footer-logo-wrapper {
+  margin-right: 120px;
 }
 .footer-logo {
   display: inline-block;
@@ -382,6 +405,9 @@ img {
   display: flex;
   justify-content: space-between;
   gap: 16px;
+}
+.footer-social-link {
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-social-link:hover,
 .footer-social-link:focus {
