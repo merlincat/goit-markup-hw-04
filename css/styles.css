@@ -137,6 +137,9 @@ img {
   width: 100%;
   transition: background-color 500ms ease-out;
 }
+.list-item-link--active::after {
+  background-color: #404bbf;
+}
 .list-item-link:hover,
 .list-item-link:focus {
   color: #404bbf;
